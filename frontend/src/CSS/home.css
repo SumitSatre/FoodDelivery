@@ -1,0 +1,69 @@
+/* Navbar */
+.navbar-container {
+    background-color: #f8f9fa;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Carousel */
+  .carousel-container {
+    margin-bottom: 20px;
+  }
+  
+  /* Category title */
+  .category-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Card container */
+  .card-container {
+    margin-bottom: 20px;
+  }
+  
+  /* Card */
+  .card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .card-options {
+    font-size: 14px;
+    color: #6c757d;
+  }
+  
+  /* Footer */
+  .footer {
+    background-color: #f8f9fa;
+    padding: 10px;
+    box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 576px) {
+    .category-title {
+      font-size: 20px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .card-container {
+      flex-basis: 25%;
+    }
+  }
+  
