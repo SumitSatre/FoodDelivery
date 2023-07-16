@@ -27,11 +27,17 @@ app.use((req , res , next)=>{
 const userRoute = require("./routes/userRoute.js");
 const displayData = require("./routes/DisplayData.js");
 const OrderData = require("./routes/OrderData.js");
+const FoodItem = require ("./routes/FoodItem");
+const UsersData = require ("./routes/UsersData");
+const AdminRoute = require ("./routes/Admin.js");
 
 // Routes used
 app.use("/api" , userRoute );
 app.use("/api" , displayData );
 app.use("/api" , OrderData );
+app.use("/api" , FoodItem );
+app.use("/api" , UsersData );
+app.use("/api/admin" , AdminRoute );
 
 // It  is used to start a server that listens on port mentioned in confuguration file
 

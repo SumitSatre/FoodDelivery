@@ -43,7 +43,8 @@ router.post(
         name : req.body.name,
         password : securePassword,
         email : req.body.email,
-        location : req.body.location
+        location : req.body.location,
+        isAdmin : false
       });
       res.status(201).json({ success: true });
     } catch (error) {

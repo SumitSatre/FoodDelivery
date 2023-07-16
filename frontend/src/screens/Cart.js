@@ -3,9 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { REMOVE , DROP } from '../slices/cartSlice';
 
 export default function Cart() {
+
+  // On cart page we show the data which is present in the initial State slice 
+  // state gives array of objects 
+
   let data = useSelector(state => state.cart);
   let dispatch = useDispatch(); 
 
+  // data.length == 0 means user ne data add to cart kelach nahi or data check out zala  
+  // means state is empty
   if (data.length === 0) {
     return <div className='m-5 w-100 text-center fs-3'>The Cart is Empty!</div>;
   }

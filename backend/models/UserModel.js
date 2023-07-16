@@ -21,6 +21,9 @@ const UserSchema = new mongoose.Schema({
         type : String,
         default : new Date().toDateString()
     },
+    isAdmin : {
+        type : Boolean
+    }
 });
 
 module.exports = mongoose.model("users" , UserSchema);

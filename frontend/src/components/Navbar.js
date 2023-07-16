@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Container, Nav, Navbar, Badge, Form, Button } from 'react-bootstrap';
+import { Container, Nav, Navbar, Badge , Button } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import Modal from '../Modal';
 import Cart from '../screens/Cart';
-import {  useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useEffect } from 'react';
 
 function Navbar_func() {
 
@@ -17,6 +18,34 @@ function Navbar_func() {
     localStorage.removeItem('authToken');
     navigate('/login');
   };
+
+  const UserEmail = localStorage.getItem('userEmail');
+  const [UserAdminStatus, setUserAdminStatus] = useState(null);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      const response = await fetch("http://localhost:5000/api/getUserData", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: UserEmail,
+        }),
+      });
+
+      const responseData = await response.json();
+
+      if (responseData.success) {
+        setUserAdminStatus(responseData.isAdmin);
+      }
+
+    };
+
+    if (UserEmail) {
+      fetchUserData();
+    }
+  }, [UserEmail]);
 
   return (
     <>
@@ -37,54 +66,63 @@ function Navbar_func() {
             ) : null}
           </Nav>
 
-          
+
           { // if authToken is not present in the database then signup and login 
-          !localStorage.getItem('authToken') ? (
-            <>
-              <Button variant='info' className='me-2'>
-                <Link className='nav-link active' to='/createuser'>
-                  SignUp
-                </Link>
-              </Button>
+            !localStorage.getItem('authToken') ? (
+              <>
+                <Button variant='info' className='me-2'>
+                  <Link className='nav-link active' to='/createuser'>
+                    SignUp
+                  </Link>
+                </Button>
 
-              <Button variant='info' className='me-2'>
-                <Link className='nav-link active' to='/login'>
-                  Login
-                </Link>
-              </Button>
-            </>
-          ) : 
-          // else Show my cart and log out buttons
-          (
-            <>
-              <div className='btn text-success bg-white mx-2' onClick={() => setCartView(true)}>
-                <Link className='nav-link active' >
-                  My cart
-                  <Badge pill bg='info' className='mx-1'>
-                    {data.length}
-                  </Badge>
-                </Link>
-              </div>
+                <Button variant='info' className='me-2'>
+                  <Link className='nav-link active' to='/login'>
+                    Login
+                  </Link>
+                </Button>
+              </>
+            ) :
+              // else Show my cart and log out buttons
+              (
+                <>
+                  <div className='btn text-success bg-white mx-2' onClick={() => setCartView(true)}>
+                    <Link className='nav-link active' >
+                      My cart
+                      <Badge pill bg='info' className='mx-1'>
+                        {data.length}
+                      </Badge>
+                    </Link>
+                  </div>
 
-              {cartView ? (
-                <Modal onClose={() => setCartView(false)}>
-                  <Cart />
-                </Modal>
-              ) : null}
+                  {cartView ? (
+                    <Modal onClose={() => setCartView(false)}>
+                      <Cart />
+                    </Modal>
+                  ) : null}
 
-              <div className='btn text-danger bg-white mx-2'>
-                <Link className='nav-link active' onClick={handleLogout}>
-                  Log out
-                </Link>
-              </div>
-            </>
-          )
+                  <div className='btn text-danger bg-white mx-2'>
+                    <Link className='nav-link active' onClick={handleLogout}>
+                      Log out
+                    </Link>
+                  </div>
+                </>
+              )
           }
 
-          <Form className='d-flex'>
-            <Form.Control type='search' placeholder='Search' className='me-2' aria-label='Search' />
-            <Button variant='success'>Search</Button>
-          </Form>
+          {
+            UserAdminStatus ?
+              (
+              <div className='btn text-danger bg-white mx-2'>
+                <Link className='nav-link active' to={"/admin"} >
+                  Dashboard
+                </Link>
+              </div>
+              ) 
+              :
+              null
+          }
+
         </Container>
       </Navbar>
     </>

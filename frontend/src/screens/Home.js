@@ -4,11 +4,14 @@ import Footer from '../components/Footer'
 import Card from '../components/Card'
 import Crousel from '../components/Crousel'
 import "../CSS/home.css";
+import { useSelector  } from 'react-redux';
 
 export default function Home() {
 
   const [foodCategoryData, setFoodCategoryData] = useState([]);
   const [foodItemsdata, setfoodItemsdata] = useState([]);
+
+  let serachText = useSelector(state => state.search);
 
   const loadData = async () => {
     let responce = await fetch("http://localhost:5000/api/foodData", {
@@ -57,7 +60,7 @@ export default function Home() {
 
                   {foodItemsdata !== []
                     ? (
-                      foodItemsdata.filter((item) => item.CategoryName === data.CategoryName)
+                      foodItemsdata.filter((item) => item.CategoryName === data.CategoryName && item.name.toLowerCase().includes(serachText.toLowerCase()))
                         .map((filteredItem) => {
                           return (
                             <div key={filteredItem._id} className='card-container col-12 col-md-6 col-lg-3'>

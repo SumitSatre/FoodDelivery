@@ -9,13 +9,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 // redux 
 import { configureStore } from '@reduxjs/toolkit';
 import cartSlice from './slices/cartSlice';
+import searchSlice from './slices/searchSlice';
 import { Provider } from 'react-redux';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const store = configureStore({
   reducer: {
-    cart: cartSlice
+    cart: cartSlice,
+    search : searchSlice
   }
 })
 
