@@ -10,6 +10,3 @@ const mongodb_connect = async () => {
     }
 };
 module.exports = mongodb_connect;
-
-// mongodb+srv://sumitsatre03:tbGBJVpnxa4fZMVo@cluster0.rmqr2zc.mongodb.net/hHungryhHubMern?retryWrites=true&w=majority
-//mongodb://127.0.0.1:27017/HungryHub
