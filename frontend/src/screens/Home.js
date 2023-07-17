@@ -14,7 +14,7 @@ export default function Home() {
   let serachText = useSelector(state => state.search);
 
   const loadData = async () => {
-    let responce = await fetch("http://localhost:5000/api/foodData", {
+    let responce = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/api/foodData`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json',

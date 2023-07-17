@@ -5,7 +5,7 @@ export default function FoodItemsDisplay() {
   let [data, setData] = useState([]);
 
   const GetFoodItems = async () => {
-    let responce = await fetch("http://localhost:5000/api/getFoodItems", {
+    let responce = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/api/getFoodItems`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',

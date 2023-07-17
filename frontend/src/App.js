@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Login from './screens/Login';
 import SignUp from './screens/SignUp';
 import MyOrder from './screens/MyOrder';
-import Admin from './screens/Admin Screen/Admin';
 import Protected from './screens/Admin Screen/ProtectedRouteAdmin';
 
 function App() {

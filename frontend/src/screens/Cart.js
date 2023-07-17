@@ -22,7 +22,7 @@ export default function Cart() {
 
     let userEmail = localStorage.getItem("userEmail");
 
-    const responce = await fetch("http://localhost:5000/api/orderdata",{
+    const responce = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/api/orderdata`,{
       method:"POST",
       headers :{
         'Content-Type': 'application/json',
