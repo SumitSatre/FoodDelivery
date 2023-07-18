@@ -8,7 +8,7 @@ const searchSlice = createSlice({
   reducers: {
 
     OnChange: (state, action) => {
-      return action.payload.serachText
+      return action.payload.searchText
     },
 
     MakeEmpty : (state , action)=>{

@@ -11,7 +11,7 @@ export default function Home() {
   const [foodCategoryData, setFoodCategoryData] = useState([]);
   const [foodItemsdata, setfoodItemsdata] = useState([]);
 
-  let serachText = useSelector(state => state.search);
+  let searchText = useSelector(state => state.search);
 
   const loadData = async () => {
     let responce = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/api/foodData`, {
@@ -60,7 +60,7 @@ export default function Home() {
 
                   {foodItemsdata !== []
                     ? (
-                      foodItemsdata.filter((item) => item.CategoryName === data.CategoryName && item.name.toLowerCase().includes(serachText.toLowerCase()))
+                      foodItemsdata.filter((item) => item.CategoryName === data.CategoryName && item.name.toLowerCase().includes(searchText.toLowerCase()))
                         .map((filteredItem) => {
                           return (
                             <div key={filteredItem._id} className='card-container col-12 col-md-6 col-lg-3'>

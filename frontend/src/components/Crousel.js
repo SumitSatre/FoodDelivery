@@ -8,7 +8,7 @@ import { OnChange } from '../slices/searchSlice';
 function ControlledCarousel() {
     const [index, setIndex] = useState(0);
     
-    let serachText = useSelector(state => state.search)
+    let searchText = useSelector(state => state.search)
     let dispatch = useDispatch();
 
     const handleSelect = (selectedIndex) => {
@@ -16,7 +16,7 @@ function ControlledCarousel() {
       };
 
     const handleSearchChange = (event) =>{
-        dispatch(OnChange({serachText : event.target.value }))
+        dispatch(OnChange({searchText : event.target.value }))
     }
 
     const imagesArray = ["https://source.unsplash.com/random/900x700/?biryani", "https://source.unsplash.com/random/900x700/?momos", "https://source.unsplash.com/random/900x700/?pizza"]
@@ -38,7 +38,7 @@ function ControlledCarousel() {
                 })
             }
             <Form className='d-flex searchBar' >
-                <Form.Control type='search' placeholder='Search for item' className='me-2' aria-label='Search' onChange={handleSearchChange} value={serachText} style={{backgroundColor:"lightblue"}} />
+                <Form.Control type='search' placeholder='Search for item' className='me-2' aria-label='Search' onChange={handleSearchChange} value={searchText} style={{backgroundColor:"lightblue"}} />
             </Form>
         </Carousel>
     );
