@@ -17,7 +17,7 @@ export default function SignUp() {
     event.preventDefault();
     console.log("This is event ", event);
 
-    const response = await fetch('http://localhost:5000/api/createuser', {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/api/createuser`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

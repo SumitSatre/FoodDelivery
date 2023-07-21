@@ -5,7 +5,7 @@ export default function FoodItemsDisplay() {
   let [data, setData] = useState([]);
 
   const GetFoodItems = async () => {
-    let responce = await fetch("http://localhost:5000/api/getFoodItems", {
+    let responce = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/api/getFoodItems`, {
       method: "GET",
       headers: {
         'Content-Type': 'application/json',
@@ -29,7 +29,7 @@ export default function FoodItemsDisplay() {
 
   const deleteItem = async (FoodName) => {
   try {
-    let response = await fetch("http://localhost:5000/api/deleteFoodItems", {
+    let response = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/api/deleteFoodItems`, {
       method: "POST",
       headers: {
         'Content-Type': 'application/json'

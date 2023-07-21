@@ -7,7 +7,7 @@ export default function UserDataDisplay() {
 
   const GetUserData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/getUserData" , {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/api/getUserData` , {
         method: "POST",
         headers: {
           'Content-Type': 'application/json',
@@ -31,7 +31,7 @@ export default function UserDataDisplay() {
 
   const deleteUser = async (email) => {
     try {
-      const response = await fetch("http://localhost:5000/api/deleteUser", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/api/deleteUser`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
@@ -52,7 +52,7 @@ export default function UserDataDisplay() {
 
   const updateUserAdminStatus = async (email) => {
     try {
-      const response = await fetch("http://localhost:5000/api/updateUserAdminStatus", {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_SERVER}/api/updateUserAdminStatus`, {
         method: "POST",
         headers: {
           'Content-Type': 'application/json'
