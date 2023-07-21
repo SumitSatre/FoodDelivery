@@ -22,7 +22,7 @@ router.post('/orderData', async (req, res) => {
         try {
             await OrderModel.create({
                 email: req.body.email,
-                order_data: data
+                order_data: [data]
             })
 
             res.send({ success: true , status : 200 });

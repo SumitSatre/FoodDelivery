@@ -1,0 +1,33 @@
+/* Navbar */
+.navbar-container {
+    background-color: #f8f9fa;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+#mobile{
+  display: none;
+}
+
+#close{
+  display: none;
+}
+
+/* navbar.css */
+.header {
+  @media (max-width: 768px) {
+    .nav-link {
+      padding: 0.5rem 1rem;
+    }
+    .fs-1 {
+      font-size: 1.5rem;
+    }
+    .fs-5 {
+      font-size: 1rem;
+    }
+    .navbar-brand {
+      padding: 0.5rem 1rem;
+    }
+    .me-auto {
+      margin-left: auto;
+    }
+  }
+}

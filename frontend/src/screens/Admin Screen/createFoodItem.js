@@ -60,7 +60,7 @@ export default function CreateFoodItem() {
    updates */
   useEffect(() => {
     loadData();
-  }, []);
+  });
 
 
   const printData = () => {
