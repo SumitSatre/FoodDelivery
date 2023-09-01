@@ -27,7 +27,7 @@ function ControlledCarousel() {
                 {
                     imagesArray.map((link, index) => {
                         return (
-                            <Carousel.Item>
+                            <Carousel.Item key={index}>
                                 <img
                                     className="d-block w-100"
                                     src={link}

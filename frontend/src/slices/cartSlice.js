@@ -60,7 +60,7 @@ For a user first initial State is empty
 
 add to cart zalyavr 
 1. tya madhe ek object push honar
-2. jar object already present asel tar initialState madhe tar to update donar
+2. jar object already present asel initialState madhe tar to update honar
   
   third when we click on cart initialState cha data cart page var disnar
 

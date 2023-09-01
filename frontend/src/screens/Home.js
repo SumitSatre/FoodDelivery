@@ -54,13 +54,13 @@ export default function Home() {
           foodCategoryData !== []
             ? foodCategoryData.map((data, index) => {
               return (
-                <div className='row mb-3'>
+                <div className='row mb-3' key={index}>
                   <div key={data._id} className='category-title fs-3 m-3'> {data.CategoryName} </div>
                   <hr />
 
                   {foodItemsdata !== []
                     ? (
-                      foodItemsdata.filter((item) => item.CategoryName === data.CategoryName && item.name.toLowerCase().includes(serachText.toLowerCase()))
+                      foodItemsdata.filter((item , index) => item.CategoryName === data.CategoryName && item.name.toLowerCase().includes(serachText.toLowerCase()))
                         .map((filteredItem) => {
                           return (
                             <div key={filteredItem._id} className='card-container col-12 col-md-6 col-lg-3'>
