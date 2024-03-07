@@ -5,7 +5,6 @@ const express = require("express");
 const dotenv = require('dotenv');
 dotenv.config({path : "./config/config.env"});
 
-
 // Connecting to the database
 const mongodb = require("./config/db");
 mongodb();
@@ -21,7 +20,7 @@ app.use((req , res , next)=>{
         "Origin , X-Requested-With , Content-Type , Accept"
     )
     next();
-})
+});
 
 // Routed Imported 
 const userRoute = require("./routes/userRoute.js");
@@ -29,6 +28,7 @@ const displayData = require("./routes/DisplayData.js");
 const OrderData = require("./routes/OrderData.js");
 const FoodItem = require ("./routes/FoodItem");
 const UsersData = require ("./routes/UsersData");
+const FoodCategoryRoute = require ("./routes/FoodCategory.js");
 const AdminRoute = require ("./routes/Admin.js");
 
 // Routes used
@@ -37,9 +37,12 @@ app.use("/api" , displayData );
 app.use("/api" , OrderData );
 app.use("/api" , FoodItem );
 app.use("/api" , UsersData );
+app.use("/api" , FoodCategoryRoute );
 app.use("/api/admin" , AdminRoute );
 
 // It  is used to start a server that listens on port mentioned in confuguration file
+
+// http://localhost:5000/api/createuser
 
 app.listen(process.env.PORT , ()=>{
     console.log(`Working at http://localhost:${process.env.PORT}/`)

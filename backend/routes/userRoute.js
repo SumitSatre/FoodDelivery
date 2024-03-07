@@ -46,6 +46,7 @@ router.post(
         location : req.body.location,
         isAdmin : false
       });
+      
       res.status(201).json({ success: true });
     } catch (error) {
       res.json({ success: false, status: 400, message: error.message });
